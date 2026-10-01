@@ -93,8 +93,13 @@ CREATE TABLE accounts(
 	account_name,
 	account_number,
 	user_id,
-	branch,
-	balance
+	branch_id,
+)
+
+CREATE TABLE account_balances(
+	account_balances_id,
+	amount,
+	account_id
 )
 
 CREATE TABLE cards(
@@ -113,8 +118,8 @@ CREATE TABLE banks(
 	bank_name
 )
 
-CREATE TABLE cards_balance(
-	balance_id,
+CREATE TABLE card_balances(
+	card_balances_id,
 	card_id,
 	balance_amount
 )
@@ -130,7 +135,6 @@ CREATE TABLE operation_types(
 	operation_type_id,
 	operation_type_name
 )
-
 
 
 CREATE TABLE bills(
@@ -159,8 +163,21 @@ CREATE TABLE bill_payments(
 	is_approved
 )
 
-CREATE TABLE deposits(
+CREATE TABLE account_deposits(
+	account_deposits_id,
+	account_id,
+	deposit_id,
+	amount,
+	start_amount,
+	procents_amount,
+	future_procents_amount
+)
 
+CREATE TABLE deposits(
+	deposit_id,
+	lasting,
+	interest_rate,
+	minimal_start_amount
 )
 
 CREATE TABLE bill_types(
@@ -243,7 +260,3 @@ CREATE TABLE countries(
 	country_id,
 	country_name
 )
-- карточки
-- смски пользователю
-- перевод денег
-- обмен валюты
